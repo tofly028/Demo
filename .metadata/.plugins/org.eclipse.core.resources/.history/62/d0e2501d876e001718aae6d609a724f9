@@ -1,0 +1,61 @@
+package com.data;
+
+import java.io.Reader;
+import java.util.List;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.data.User;
+import com.data.inter.*;
+
+public class DemoD2 {
+	private static SqlSessionFactory sqlSessionFactory;
+    private static Reader reader; 
+    
+    static{
+        try{
+            reader    = Resources.getResourceAsReader("conf.xml");
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static SqlSessionFactory getSession(){
+        return sqlSessionFactory;
+    }
+    
+    public void getUserList(String userName){
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            IUserOperation userOperation=session.getMapper(IUserOperation.class);          
+            List<User> users = userOperation.selectUsers(userName);
+            for(User user:users){
+                System.out.println(user.getAge()+":"+user.getName());
+            }
+            
+        } finally {
+            session.close();
+        }
+    }
+    
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		SqlSession session = sqlSessionFactory.openSession();
+        try {
+        	IUserOperation userOperation=session.getMapper(com.data.inter.IUserOperation.class);
+            
+            User user = userOperation.SelectUserById(1);
+            System.out.println(user.getAge());
+            System.out.println(user.getName());
+            
+        } finally {
+            session.close();
+        }
+        
+        getUserList("%");
+	}
+}

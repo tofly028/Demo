@@ -1,0 +1,8 @@
+package com.data.inter;
+
+import com.data.User;
+
+public interface IUserOperation {
+	public User SelectUserById(int id);
+	public List<User> selectUsers(String name);    
+}

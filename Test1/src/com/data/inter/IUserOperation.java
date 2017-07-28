@@ -1,0 +1,13 @@
+package com.data.inter;
+
+import java.util.List;
+
+import com.data.User;
+
+public interface IUserOperation {
+	public User SelectUserById(int id);
+	public List<User> selectUsers(String userName);
+	public void addUser(User user);
+	public void updateUser(User user);
+	public void deleteUser(User user);
+}

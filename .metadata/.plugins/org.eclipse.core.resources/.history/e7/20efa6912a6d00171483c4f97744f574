@@ -1,0 +1,46 @@
+package com.sb;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.FlowLayout;
+
+public class Demo2 {
+
+	private JFrame frmdemo;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Demo2 window = new Demo2();
+					window.frmdemo.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Demo2() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmdemo = new JFrame();
+		frmdemo.setTitle("ÖÐ¹úDemo2");
+		frmdemo.setBounds(100, 100, 623, 471);
+		frmdemo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmdemo.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.data.inter;
+
+public interface IUserOperation {
+	public User SelectById(int);
+}

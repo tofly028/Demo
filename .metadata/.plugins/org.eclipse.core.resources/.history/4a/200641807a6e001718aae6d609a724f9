@@ -1,0 +1,25 @@
+package com.data;
+
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+public class DemoD1 {
+
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		SqlSession session = sqlSessionFactory.openSession();
+        try {
+        User user = (User) session.selectOne("com.yihaomen.mybatis.models.UserMapper.selectUserByID", 1);
+        System.out.println(user.getUserAddress());
+        System.out.println(user.getUserName());
+        } finally {
+        session.close();
+        }
+    }
+	}
+
+}

@@ -1,0 +1,47 @@
+package com.assist;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+
+import java.awt.FlowLayout;
+
+import javax.swing.*;
+
+public class Demo1 extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	private JButton jbt=new JButton("OK");
+	private JLabel jlb=new JLabel("sb");
+	private JList jl=new JList(new String[]{"aa","bb","cc"});
+//	private JList jl=new JList(
+//		new object[]{
+//			new Student(20,"张三"),
+//			new Student(21,"李四"),
+//			new Student(22,"王五")
+//		}
+//	);
+	/**
+	 * 
+	 */
+	Demo1()
+	{
+		super.setTitle("Demo1");
+		this.setSize(600, 400);
+		this.setLocation(200, 200);
+		
+		this.setLayout(new FlowLayout());
+		
+		this.add(jbt);
+		this.add(jl);
+		
+		this.setVisible(true);
+		this.setDefaultCloseOperation(Demo1.EXIT_ON_CLOSE);
+	}
+
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		new Demo1();
+	}
+
+}
